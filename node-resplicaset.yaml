@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: k8s-node
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-node
+  template:
+    metadata:
+      labels:
+        app: k8s-node
+    spec:
+      containers:
+      - name: k8s-app
+        image: panchanandmahto/k8s-node:v0.0.2
+        ports: 
+        - containerPort: 3000
+  
